@@ -1,15 +1,5 @@
 # Predicting Stock Movement Using News Headlines 
 
-- short introduction to the analyzed problem
-- data set description
-- two diagrams (prepared for ex. in Paint) which describe the structure of the models:
-> benchmark model
-> student’s model
-- list of the parameters, which are optimized in the student’s model
-- results (incl. comparison of the models)
-- conclusions
-- references
-
 ## Introduction 
 
 The purpose of this project is to explore the probability of using most discussed world news headlines to predict the selected stock movement (up or down).
@@ -20,7 +10,7 @@ The dataset consists of 1989 observations: top 25 daily news headlines as well a
 
 Reddit is an online community where users share their opinions about various subjects, from politics, science to daily lives. In the World News subreddit, users discuss the latest happenings around the world outside the United States.
 
-<img src="img/reddit.png" alt="drawing" width="800"/>
+<img src="img/reddit.png" alt="Reddit" width="800"/>
 
 *Screenshot of worldnews subreddit on Reddit.com*
 
@@ -32,7 +22,7 @@ First, text preprocessing is performed, including text normalization, removing s
 
 The overall process can be summarized into the following flowchart:
 
-<img src="img/overview.png" alt="drawing" width="800"/>
+<img src="img/overview.png" alt="overview" width="800"/>
 
 *Flowchart of training models*
 
@@ -50,7 +40,7 @@ The result is described as follows:
 
 The ROC curve for the `Logistic Regression + customized Tfidf` model:
 
-<img src="img/ROC.png" alt="drawing" width="400"/>
+<img src="img/ROC.png" alt="ROC Curve" width="400"/>
 
 From the ROC curve, it is observed that the model is overfitted: having a training AUC much higher than the testing set. The test accuracy is slightly better than a straight line. Overall, the performance of the model is below satisfactory. 
 
@@ -60,7 +50,7 @@ From the ROC curve, it is observed that the model is overfitted: having a traini
 Two types of neural networks are tested: Recurrent Neural Networks and Convolutional Neural Networks. The first two models consist of RNN and CNN respectively and the last model is a combination of the two. 
 
 ### RNN model
-<img src="img/LSTM.png" alt="drawing" width="800"/>
+<img src="img/LSTM.PNG" alt="LSTM Structure" width="800"/>
 
 *structure of the LSTM model, GRU is a simplied version of LSTM*
 
@@ -77,9 +67,13 @@ Results:
 | GRU (RNN)  | Default                                          | 0.5026         |
 | GRU (RNN)  | optimizer = Nadam                                | 0.4894         |
 
+<img src="img/resultLSTM.png" alt="LSTM result" width="800"/>
+
+*Result of the default LSTM model*
+
 ### CNN model
 
-<img src="img/CNN.png" alt="drawing" width="800"/>
+<img src="img/CNN.PNG" alt="CNN Structure" width="800"/>
 
 *structure of the CNN model*
 
@@ -94,9 +88,13 @@ Results:
 | CNN        | filters=32, kernel_size=2                        | 0.4841         |
 
 
+<img src="img/resultCNN.png" alt="CNN + RNN result" width="800"/>
+
+*Result of `CNN filters=10, kernel_size=5`*
+
 ### Hybrid model
 
-<img src="img/CNN+LSTM.png" alt="drawing" width="800"/>
+<img src="img/CNN+LSTM.PNG" alt="CNN + LSTM Structure" width="800"/>
 
 *structure of the CNN+LSTM model*
 
@@ -110,6 +108,9 @@ Results:
 | CNN + GRU  | filters=10, kernel_size=5, learning_rate = 0.005 | 0.5265         |
 | CNN + GRU  | filters=10, kernel_size=5, learning_rate = 0.007 | 0.4868         |
 
+<img src="img/resultCNN+RNN.png" alt="CNN + RNN result" width="800"/>
+
+*Result of `CNN+GRU filters=10, kernel_size=5, learning_rate = 0.005`*
 
 ## Conclusion 
 
@@ -119,3 +120,9 @@ In the future projects, the following can be tried:
 
 - using financial news 
 - adding lags into the result
+
+## Reference 
+
+- Géron, A. (2017). Hands-on machine learning with Scikit-Learn and TensorFlow : concepts, tools, and techniques to build intelligent systems. Sebastopol, CA: O'Reilly Media. ISBN: 978-1491962299
+- Lane, H., Howard, C., Hapke, H. (2019) Natural Language Processing in Action. Manning Publications. ISBN: 9781617294631
+- Alzazah, Faten & Cheng, Xiaochun. (2020). Recent Advances in Stock Market Prediction Using Text Mining: A Survey. 10.5772/intechopen.92253. 
