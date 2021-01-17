@@ -22,7 +22,7 @@ First, text preprocessing is performed, including text normalization, removing s
 
 The overall process can be summarized into the following flowchart:
 
-<img src="img/overview.png" alt="overview" width="800"/>
+<img src="img/overview.PNG" alt="overview" width="800"/>
 
 *Flowchart of training models*
 
